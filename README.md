@@ -1,2 +1,2 @@
 # RPG
- A DoD like text base RPG game script
+A DnD like text base RPG game script
