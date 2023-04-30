@@ -22,14 +22,12 @@ def get_player(player: str, database) -> dict:
 def is_player_exist(player: str, database) -> bool:
     """Check if a player exist in database"""
     r = database.Player.find_one({"id": player})
-    print(r)
     return r != None
 
 def save_player(player, database) -> None:
     from RPG.core import Character
     player: Character
     if isinstance(player, Character):
-        print("Saving player...")
         database.Player.insert_one(player.to_dict())
 
 def kill_player(player: str, database) -> None:

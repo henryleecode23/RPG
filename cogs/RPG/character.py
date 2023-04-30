@@ -45,6 +45,21 @@ class CharacterCog(CogBase):
             await ctx.respond("You don't have a character. Try to create one!", ephemeral=True)
             return
         kill_player(ctx.author.id, self.bot.database)
+        await ctx.respond("Your character is killed", ephemeral=True)
+
+    @character.command(name="show", description="Show your character status on public")
+    async def character_show(self, ctx: discord.ApplicationContext):
+        data = get_player(ctx.author.id, self.bot.database)
+        if data is None:
+            await ctx.respond("You don't have a character. Try to create one!", ephemeral=True)
+            return
+        character = Character.create_from_dict(data)
+        embed=discord.Embed(title=ctx.author.name, description=ctx.author.mention, color=0x57e389)
+        embed.add_field(name="HP", value=f"{character.HP}/{character.MAX_HP}", inline=False)
+        embed.add_field(name="MP", value=f"{character.MP}/{character.MAX_MP}", inline=False)
+        embed.add_field(name="屬性", value=f"STR: {character.STR}\nDEX: {character.DEX}\nCON: {character.CON}\nINT: {character.INT}\nWIS: {character.WIS}\nCHA: {character.CHA}", inline=False)
+        embed.set_thumbnail(url=ctx.author.display_avatar.url)
+        await ctx.respond(embed=embed)
         
 
 def setup(bot: commands.Bot):
