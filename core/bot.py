@@ -5,6 +5,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 from pymongo import MongoClient
 import os
+from lib.keep_alive import keep_alive
 
 load_dotenv()
 
@@ -18,3 +19,4 @@ class Bot(commands.Bot):
         for cog in self.cogs_list:
             self.load_extension(cog)
         self.database = MongoClient(os.getenv("MONGODB_URI")).RPG_database
+        keep_alive()
