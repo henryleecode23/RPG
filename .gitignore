@@ -152,3 +152,7 @@ cython_debug/
 
 # custom
 temp.py
+
+# replit
+.replit
+replit.nix
