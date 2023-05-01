@@ -79,6 +79,12 @@ class BasicCog(CogBase):
         await self.bot.get_channel(self.bot.config["bot_info_channel"]).send(f"{self.bot.user.name} is online.")
         return
     
+    @commands.command()
+    async def info(self, ctx: commands.Context):
+        embed = discord.Embed(title="Bot info", color=0xcadc35)
+        embed.add_field(name="已執行時間", value=f"<t:{int(self.bot.run_time.timestamp())}:R>", inline=False)
+        embed.add_field(name="Loaded Cogs", value=[cog for cog in self.bot.cogs], inline=False)
+        await ctx.send(embed=embed)
 
 def setup(bot: commands.Bot):
     bot.add_cog(BasicCog(bot))

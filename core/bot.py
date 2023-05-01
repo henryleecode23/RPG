@@ -1,11 +1,13 @@
 from lib import *
+from lib.keep_alive import keep_alive
 
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from pymongo import MongoClient
 import os
-from lib.keep_alive import keep_alive
+from datetime import datetime
+
 
 load_dotenv()
 
@@ -19,4 +21,5 @@ class Bot(commands.Bot):
         for cog in self.cogs_list:
             self.load_extension(cog)
         self.database = MongoClient(os.getenv("MONGODB_URI")).RPG_database
+        self.run_time = datetime.now()
         keep_alive()
