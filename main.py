@@ -1,7 +1,7 @@
 __project__ = "HLCT RPG Bot"
 __author__ = "HLCT"
 __gmail__ = "henryleecode23@gmail.com"
-__version__ = "0.0.1"
+__version__ = "0.0.3"
 
 
 def main():
