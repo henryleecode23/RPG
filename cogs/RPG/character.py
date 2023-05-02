@@ -19,12 +19,7 @@ class CharacterCog(CogBase):
         embed.add_field(name="HP", value=f"{character.HP}/{character.MAX_HP}", inline=True)
         embed.add_field(name="MP", value=f"{character.MP}/{character.MAX_MP}", inline=True)
         embed.add_field(name="屬性", value=
-                        f"STR: {character.STR}\n \
-                        DEX: {character.DEX}\n \
-                        CON: {character.CON}\n \
-                        INT: {character.INT}\n \
-                        WIS: {character.WIS}\n \
-                        CHA: {character.CHA}",
+                        f"STR: {character.STR}\nDEX: {character.DEX}\nCON: {character.CON}\nINT: {character.INT}\nWIS: {character.WIS}\nCHA: {character.CHA}",
                         inline=False)
         embed.set_thumbnail(url=ctx.author.display_avatar.url)
         await ctx.respond(embed=embed, ephemeral=True)
@@ -41,12 +36,7 @@ class CharacterCog(CogBase):
         embed.add_field(name="HP", value=f"{character.HP}/{character.MAX_HP}", inline=True)
         embed.add_field(name="MP", value=f"{character.MP}/{character.MAX_MP}", inline=True)
         embed.add_field(name="屬性", value=
-                        f"STR: {character.STR}\n \
-                        DEX: {character.DEX}\n \
-                        CON: {character.CON}\n \
-                        INT: {character.INT}\n \
-                        WIS: {character.WIS}\n \
-                        CHA: {character.CHA}",
+                        f"STR: {character.STR}\nDEX: {character.DEX}\nCON: {character.CON}\nINT: {character.INT}\nWIS: {character.WIS}\nCHA: {character.CHA}",
                         inline=False)
         embed.set_thumbnail(url=ctx.author.display_avatar.url)
         await ctx.respond(embed=embed, ephemeral=True)
@@ -70,12 +60,7 @@ class CharacterCog(CogBase):
         embed.add_field(name="HP", value=f"{character.HP}/{character.MAX_HP}", inline=True)
         embed.add_field(name="MP", value=f"{character.MP}/{character.MAX_MP}", inline=True)
         embed.add_field(name="屬性", value=
-                        f"STR: {character.STR}\n \
-                        DEX: {character.DEX}\n \
-                        CON: {character.CON}\n \
-                        INT: {character.INT}\n \
-                        WIS: {character.WIS}\n \
-                        CHA: {character.CHA}",
+                        f"STR: {character.STR}\nDEX: {character.DEX}\nCON: {character.CON}\nINT: {character.INT}\nWIS: {character.WIS}\nCHA: {character.CHA}",
                         inline=False)
         embed.set_thumbnail(url=ctx.author.display_avatar.url)
         await ctx.respond(embed=embed)
