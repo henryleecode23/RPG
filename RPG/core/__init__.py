@@ -47,7 +47,7 @@ class Item:
 
 class Character:
     def __init__(self):
-        self.id:str # ID
+        self._id:str # ID
         self.name:str # 名稱 (Name)
         self.ethnic: Ethnic = None # 種族
         self.level:int = None # 等級 (Level)
@@ -78,7 +78,7 @@ class Character:
 
     def to_dict(self):
         return {
-            "id": self.id,
+            "_id": self._id,
             "name": self.name,
             "ethnic": self.ethnic,
             "level": self.level,
@@ -98,7 +98,7 @@ class Character:
     @classmethod
     def create(cls, id:str, name:str, ethnic: Ethnic, level:int, experience:int, STR:int, DEX:int, CON:int, INT:int, WIS:int, CHA:int, MAX_HP:int, MAX_MP:int,HP:int, MP:int):
         character = cls()
-        character.id = id
+        character._id = id
         character.name = name
         character._ethnic = ethnic
         character.level = level
@@ -120,7 +120,7 @@ class Character:
     def create_from_dict(cls, data:dict):
         try:
             character = cls.create(
-                data["id"],
+                data["_id"],
                 data["name"],
                 data["ethnic"],
                 data["level"],
@@ -142,7 +142,7 @@ class Character:
     @classmethod
     def random_create(cls, id:str, name:str):
         character = cls()
-        character.id = id
+        character._id = id
         character.name = name
         character.ethnic = choice([e.name for e in Ethnic])
         character.level = 1
@@ -177,7 +177,7 @@ class Character:
     def info(self):
         print("========================================")
         print(f"{self.name} (Lv.{self.level})")
-        print(f"id: {self.id}")
+        print(f"id: {self._id}")
         print(f"經驗值: {self.experience}/{self.MAX_experience}")
         print(f"生命值: {self.HP}/{self.MAX_HP}")
         print(f"魔力值: {self.MP}/{self.MAX_MP}")

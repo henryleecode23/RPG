@@ -17,11 +17,11 @@ def get_config(path: str) -> dict:
 
 def get_player(player: str, database) -> dict:
     """Get a player from database"""
-    return database.Player.find_one({"id": player})
+    return database.Player.find_one({"_id": player})
 
 def is_player_exist(player: str, database) -> bool:
     """Check if a player exist in database"""
-    r = database.Player.find_one({"id": player})
+    r = database.Player.find_one({"_id": player})
     return r != None
 
 def save_player(player, database) -> None:
@@ -32,5 +32,5 @@ def save_player(player, database) -> None:
 
 def kill_player(player: str, database) -> None:
     """Kill a player"""
-    database.Player.delete_one({"id": player})
+    database.Player.delete_one({"_id": player})
 

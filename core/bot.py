@@ -19,7 +19,10 @@ class Bot(commands.Bot):
         self.cogs_list = find_cogs("./cogs")
         self.cogs_list.remove("cogs.Basic.Basic")
         for cog in self.config["disabled_cogs"]:
-            self.cogs_list.remove(cog)
+            try:
+                self.cogs_list.remove(cog)
+            except:
+                pass
         for cog in self.cogs_list:
             self.load_extension(cog)
         self.database = MongoClient(os.getenv("MONGODB_URI")).RPG_database
